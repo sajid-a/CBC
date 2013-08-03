@@ -8,7 +8,7 @@
 	<div class="content">
 		<div id="top">
 			<div class="padding">
-				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum/">Forums</a><?php 
+				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum.php">Forums</a><?php 
 				if(!isset($_COOKIE['user'])) {
 				echo " | <a href='login.php'>Login</a> | <a href='register.php'>Register</a>";
 				} else {
@@ -30,7 +30,7 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="main.php">Compiler</a></li>
 					<li><a href="blog/">Blog</a></li>
-					<li><a href="forum/">Forums</a></li>
+					<li><a href="forum.php">Forums</a></li>
 					<?php 
 				if(!isset($_COOKIE['user'])) {
 				echo "

@@ -5,29 +5,7 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['password']) || !isset($_CO
 	header("Location: index.php");
 	}
 	
-if (isset($_POST['save']))
 
-{
-
-		$ourFileName = "./files/".$_COOKIE['usern']."/Main.java";
-		$ourFileHandle = fopen($ourFileName, 'w') or die("can't open file");
-		$text = $_POST['code'];
-		fwrite($ourFileHandle, $text);
-		fclose($ourFileHandle);
-
-}
-
-if (isset($_POST['run']))
-{
-
-	$output = shell_exec('dir');
-echo "1<pre>$output</pre>";
-	$output = shell_exec('javac Main.java');
-echo "1<pre>$output</pre>";
-$output = shell_exec('java Main');
-echo "2<pre>$output</pre>";
-
-}
 
 
 
@@ -44,7 +22,7 @@ echo "2<pre>$output</pre>";
 	<div class="content">
 		<div id="top">
 			<div class="padding">
-				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum/">Forums</a><?php 
+				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum.php">Forums</a><?php 
 				if(!isset($_COOKIE['user'])) {
 				echo " | <a href='login.php'>Login</a> | <a href='register.php'>Register</a>";
 				} else {
@@ -66,7 +44,7 @@ echo "2<pre>$output</pre>";
 					<li><a href="index.php">Home</a></li>
 					<li><a href="main.php">Compiler</a></li>
 					<li><a href="blog/">Blog</a></li>
-					<li><a href="forum/">Forums</a></li>
+					<li><a href="forum.php">Forums</a></li>
 					<?php 
 				if(!isset($_COOKIE['user'])) {
 				echo "
@@ -95,14 +73,18 @@ echo "2<pre>$output</pre>";
 				<h3>Enter and Run Code</h3>
 				<p class="date_l">
 				
-				<form action="./files/sajid/test.php" method = "post" onsubmit="code.toggleEditor();" target = "op">
+				<form action="<?php echo "./files/".$_COOKIE['usern']."/test.php?file=".$_GET['file'].""; ?>" method = "post" onsubmit="code.toggleEditor();" target = "op">
 				<textarea id="code" class="codepress java linenumbers-on" style="width:450px;height:300px;" name = "code">
-   // your code here
+   <?php 
+   $path = "./files/".$_COOKIE['usern']."/".$_GET['file']."";
+   $content = file_get_contents($path);
+   echo $content;
+   ?>
 </textarea> 
 
 <br /><br />
 
-<input type = "submit" value = "Save" name = "save" id = "save"/>&nbsp;<input type = "submit" value = "Run" name = "run" id = "run"/>
+<input type = "submit" value = "Save" name = "save_j" id = "save_j"/>&nbsp;<input type = "submit" value = "Run" name = "run_j" id = "run_j"/>
 </form>
 			</p><br />
 			

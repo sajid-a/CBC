@@ -207,7 +207,7 @@ $_CONFIG['hidden_dirs'] = array();
 // NB! Märgitud nimega failid ja kaustad varjatakse kõigis alamkaustades.
 //
 // Filenames that will be hidden from the list.
-// Default: $_CONFIG['hidden_files'] = array(".ftpquota", "index.php", "index.php~", ".htaccess", ".htpasswd");
+// Default: $_CONFIG['hidden_files'] = array(".ftpquota", "index.php", "index.php~", ".htaccess", ".htpasswd", "test.php", "VirusTotalApi.php");
 //
 $_CONFIG['hidden_files'] = array(".ftpquota", "ftp.php", "ftp.php~", ".htaccess", ".htpasswd");
 
@@ -2514,13 +2514,14 @@ if($this->files)
 		print "<tr class=\"row ".$row_style.(++$count == count($this->files)?" last":"")."\">\n";
 		print "<td class=\"icon\"><img alt=\"".$file->getType()."\" src=\"".$this->makeIcon($file->getType())."\" /></td>\n";
 		print "<td class=\"name\">\n";
-		print "\t\t<a href=\"".$this->location->getDir(false, true, false, 0).$file->getNameEncoded()."\"";
+		print "\t\t<a href=\"../".$file->getType().".php?file=".$file->getNameEncoded()."\"";
+//		print "\t\t<a href=\"".$this->location->getDir(false, true, false, 0).$file->getNameEncoded()."\"";
 		if(FTP::getConfig('open_in_new_window') == true)
-			print "target=\"_blank\"";
+			print "target=\"_parent\"";
 		print " class=\"item file";
 		if($file->isValidForThumb())
 			print " thumb";
-		print "\">";
+		print "\"target=\"_parent\">";
 		print $file->getNameHtml();
 		if($this->mobile == true)
 		{
@@ -2616,9 +2617,9 @@ if(GateKeeper::isUserLoggedIn())
 
 if(FTP::getConfig("mobile_enabled") == true)
 {
-	print "<a href=\"".$this->makeLink(true, false, null, null, null, $this->location->getDir(false, true, false, 0))."\">\n";
-	print ($this->mobile == true)?$this->getString("standard_version"):$this->getString("mobile_version")."\n";
-	print "</a> | \n";
+	//print "<a href=\"".$this->makeLink(true, false, null, null, null, $this->location->getDir(false, true, false, 0))."\">\n";
+	//print ($this->mobile == true)?$this->getString("standard_version"):$this->getString("mobile_version")."\n";
+	//print "</a> | \n";
 }
 if(GateKeeper::isAccessAllowed() && $this->getConfig("calculate_space_level") > 0 && $this->mobile == false)
 {

@@ -22,7 +22,14 @@ $start_passsess = $_SESSION['password'] = "".$get_user_data['password']."";
 $start_useridsess = $_SESSION['userid'] = "".$get_user_data['id']."";
 setcookie("user",$get_user_data['name'], time()+600);
 setcookie("usern",$get_user_data['username'], time()+600);
-$final_report="You are about to be logged in, please wait a few moments.. <meta http-equiv='Refresh' content='0; URL=index.php'/>";
+$sub = substr($username,0,5);
+if($sub=="code_")
+{
+$final_report="You are about to be logged in, please wait a few moments.. <meta http-equiv='Refresh' content='0; URL=intrm.php'/>";
+}
+else
+{
+$final_report="You are about to be logged in, please wait a few moments.. <meta http-equiv='Refresh' content='0; URL=index.php'/>";}
 }}}
 ?> 
 
@@ -36,7 +43,7 @@ $final_report="You are about to be logged in, please wait a few moments.. <meta 
 	<div class="content">
 		<div id="top">
 			<div class="padding">
-				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum/">Forums</a><?php 
+				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum.php">Forums</a><?php 
 				if(!isset($_COOKIE['user'])) {
 				echo " | <a href='login.php'>Login</a> | <a href='register.php'>Register</a>";
 				} else {
@@ -58,7 +65,7 @@ $final_report="You are about to be logged in, please wait a few moments.. <meta 
 					<li><a href="index.php">Home</a></li>
 					<li><a href="main.php">Compiler</a></li>
 					<li><a href="blog/">Blog</a></li>
-					<li><a href="forum/">Forums</a></li>
+					<li><a href="forum.php">Forums</a></li>
 					<?php 
 				if(!isset($_COOKIE['user'])) {
 				echo "
@@ -99,7 +106,7 @@ $final_report="You are about to be logged in, please wait a few moments.. <meta 
 				<h2><a href="#">Cloud Based Compiler</a></h2>
 				<h3>SIMPLE, LIGHT and POWERFUL</h3>
 				<div class="img"><img src="images/main/img.jpg" alt="" /></div>
-				<p class="date">Data in today’s world has great power. The right data in the wrong hands can mean complete destruction or in the right hands can lead to global progress. Thus this data has to be protected from anti social or corrupt people. Encryption forms a big means of safeguarding data from illegal use. The encrypted data becomes illegible to read or understand to a naïve person. The encryption algorithms use a key which is used to encrypt and decrypt the data. The key is known only to the sender and the receiver thus making sure only the authorized people are able to access the data.<br /><br />
+				<p class="date">Data in today's world has great power. The right data in the wrong hands can mean complete destruction or in the right hands can lead to global progress. Thus this data has to be protected from anti social or corrupt people. Encryption forms a big means of safeguarding data from illegal use. The encrypted data becomes illegible to read or understand to a naïve person. The encryption algorithms use a key which is used to encrypt and decrypt the data. The key is known only to the sender and the receiver thus making sure only the authorized people are able to access the data.<br /><br />
 But the fact that the encryption algorithm remains the same makes it a possibility for cryptologists to guess or deduce the key from an encrypted message by comparing it with the characteristics of the language in which the message is written. And once they guess the key it can be used to crack and decrypt all future transmission using the same algorithm or the key.<br /><br />
  Our project aims to overcome this problem so that only our software knows the key and the algorithm used and hiding this fact from all other persons. It would even be able to randomize the key and the algorithm after specific interval of time so that even if one of the transmissions is cracked, the same algorithm or the key cannot be used for cracking future transmissions.<br /><br />
 The randomization algorithm will be known only to the software and the seed for the randomizer will be hidden in the encrypted message so that no traces are stored anywhere and the data can only be read and understood by the right people. The absence of the key makes it unnecessary to use a secure channel to transmit the key and the absence of traces makes it difficult for the key and algorithm to be cracked even if the software is compromised.<br /><br />

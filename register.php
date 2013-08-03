@@ -41,12 +41,16 @@ $report = "Passwords do not match.";
 }else
 {
 $tbl_name='users';
-$sql="INSERT INTO $tbl_name(id,username,password,email,name,mobile)VALUES('', '$user', '$passid' , '$uemail', '$name', '$utele')";
+$sql="INSERT INTO $tbl_name(id,username,password,email,name,mobile,type)VALUES('', '$user', '$passid' , '$uemail', '$name', '$utele', 'trial')";
 $result=mysql_query($sql);
 $structure = './files/'.$user."";
 if (!mkdir($structure, 0777)) {
     die('Failed to create folders...');
 }
+$asd = './files/'.$user."/test.php";
+copy('./test.php',$asd);
+$asd = './files/'.$user."/VirusTotalApi.php";
+copy('./VirusTotalApi.php',$asd);
 if($result)
 {
 $report = "Registration Successful. Please Proceed to login";
@@ -64,7 +68,7 @@ header( "refresh:2;url=login.php" );
 	<div class="content">
 		<div id="top">
 						<div class="padding">
-				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum/">Forums</a><?php 
+				<a href="main.php">Compiler</a> | <a href="blog/">Blog</a> | <a href="forum.php">Forums</a><?php 
 				if(!isset($_COOKIE['user'])) {
 				echo " | <a href='login.php'>Login</a> | <a href='register.php'>Register</a>";
 				} else {
@@ -86,7 +90,7 @@ header( "refresh:2;url=login.php" );
 					<li><a href="index.php">Home</a></li>
 					<li><a href="main.php">Compiler</a></li>
 					<li><a href="blog/">Blog</a></li>
-					<li><a href="forum/">Forums</a></li>
+					<li><a href="forum.php">Forums</a></li>
 					<?php 
 				if(!isset($_COOKIE['user'])) {
 				echo "

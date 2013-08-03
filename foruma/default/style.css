@@ -7,7 +7,7 @@
 }
 body
 {
-	background:#e2f6ff url('images/background.gif') center top no-repeat;
+
 	padding-left:10%;
 	padding-right:10%;
 	font-family:Arial, Geneva, sans-serif;
@@ -103,31 +103,20 @@ td, th
 	margin:auto;
 	margin-top:10px;
 	padding:15px;
-	background:url('images/bluec_30p.png');
 	width:60%;
-	-moz-border-radius:20px;
-	-webkit-border-radius:20px;
-	border-radius:20px;
 	text-align:center;
 }
 .foot
 {
 	text-align:center;
-	background:url('images/bluec_30p.png');
 	width:60%;
-	-moz-border-radius:15px;
-	-webkit-border-radius:15px;
-	border-radius:15px;
 	padding:10px;
 	margin:20px auto;
 }
 .content
 {
-	background:url('images/bluec_30p.png');
+
 	width:85%;
-	-moz-border-radius:20px;
-	-webkit-border-radius:20px;
-	border-radius:20px;
 	margin:auto;
 	padding:20px;
 	margin-top:20px;

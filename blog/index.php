@@ -20,7 +20,7 @@ $id = $_GET['id'];
 	<div class="content">
 		<div id="top">
 			<div class="padding">
-				<a href="#">Compiler</a> | <a href="index.html">Blog</a> | <a href="../forum/">Forums</a><?php 
+				<a href="#">Compiler</a> | <a href="index.html">Blog</a> | <a href="../forum.php">Forums</a><?php 
 				if(!isset($_COOKIE['user'])) {
 				echo " | <a href='../login.php'>Login</a> | <a href='register.php'>Register</a>";
 				} else {
@@ -42,7 +42,7 @@ $id = $_GET['id'];
 					<li><a href="../index.php">Home</a></li>
 					<li><a href="#">Compiler</a></li>
 					<li><a href="../blog/">Blog</a></li>
-					<li><a href="../forum/">Forums</a></li>
+					<li><a href="../forum.php">Forums</a></li>
 					<?php 
 				if(!isset($_COOKIE['user'])) {
 				echo "
